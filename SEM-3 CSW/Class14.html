@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML id Attribute</title>
+    <style>
+        .container{
+            width: 50%;
+            position:relative;
+        }
+        .image{
+            height:auto;
+            width:100%;
+            display:block;
+            height: 80%;
+        }
+        .overlay{
+            position:absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            width:100%;
+            height:100%;
+            opacity:0;
+            transition: .5s ease;
+            background-color:#00BCBA;
+        }
+        .container:hover .overlay{
+            opacity:1;
+        }
+        .text{
+            color: white;
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Fade in overlay</h2>
+    <p>Hover over the image to see the effect</p>
+    <div class="container">
+        <img src="Gym.jpg" alt="GymBro" class="image">
+        <div class="overlay">
+            <div class="text">Go To Gym</div>
+        </div>
+    </div>
+</body>
+</html>

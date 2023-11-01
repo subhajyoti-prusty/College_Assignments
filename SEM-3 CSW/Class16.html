@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 16</title>
+</head>
+<body>
+    <h2>Using inner HTML</h2>
+    <p>A Calculator</p>
+    <p id="demo"></p>
+
+    <h2>Using document.write()</h2>
+    <p>Never call document.write after the page finished loading</p>
+    <p>It will erase everthing before</p>
+    <button type="button" onclick="document.write (50+60)">Try me!</button>
+    <script>
+        document.getElementById("demo").innerHTML = 50 + 40;
+        document.write(50+40);
+    </script>
+    <script>
+        <!-- document.alert(5+6); -->
+        alert(5+6);
+    </script>
+</body>
+</html>
