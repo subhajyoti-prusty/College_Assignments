@@ -10,6 +10,7 @@
     <p>A Calculator</p>
     <p id="demo"></p>
 
+
     <h2>Using document.write()</h2>
     <p>Never call document.write after the page finished loading</p>
     <p>It will erase everthing before</p>
@@ -18,9 +19,48 @@
         document.getElementById("demo").innerHTML = 50 + 40;
         document.write(50+40);
     </script>
+
+
     <script>
-        <!-- document.alert(5+6); -->
         alert(5+6);
+    </script>
+
+
+    <h2>Debugging with console.log()</h2>
+    <p>Press F12 to start the Debugging</p>
+    <script>
+        console.log(17+19);
+    </script>
+
+
+    <h2>The window.print() method</h2>
+    <p>Click button to print the page</p>
+    <button onclick="window.print()">Print this page</button>
+
+    <h2>Js statement</h2>
+    <h4>Js program is a list of statements to be executed</h4>
+    <p id="demo1"></p>
+    <script>
+        var x,y,z;
+        x = 50;
+        y = 60;
+        z = x + y;
+        document.getElementById("demo1").innerHTML = "Result: "+x+" + "+y+" = "+z;
+    </script>
+
+    <h2>JS Code Blocks</h2>
+    <p>JS Code Blocks written between {and}</p>
+    <button type="button" onclick="f1()">Click Me</button>
+    <button type="button" onclick="f2()">Press Me</button>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <script>
+        function f1(){
+            document.getElementById("demo2").innerHTML = "Hello There";
+        }
+        function f2(){
+            document.getElementById("demo3").innerHTML = "How are you";
+        }
     </script>
 </body>
 </html>
