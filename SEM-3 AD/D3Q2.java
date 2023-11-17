@@ -1,5 +1,5 @@
 //Selection Sort
-package CollegeCodes;
+package AD;
 public class D3Q2 {
     public static void SelectionSort(int arr[]){
         int n = arr.length;

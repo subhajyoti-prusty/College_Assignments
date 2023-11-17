@@ -1,5 +1,5 @@
 //Bubble Sort
-package CollegeCodes;
+package AD;
 public class D3Q1 {
     public static void BubbleSort(int arr[]){
         int a = arr.length;

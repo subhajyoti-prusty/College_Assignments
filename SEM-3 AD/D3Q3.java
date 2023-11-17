@@ -1,5 +1,5 @@
 //Insertion Sort
-package CollegeCodes;
+package AD;
 public class D3Q3 {
     public static void InsertionSort(int arr[]){
         int n = arr.length;
