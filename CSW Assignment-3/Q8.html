@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <style>
+        table {
+        width: 80%;
+        margin: auto;
+        }
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+        h2, p, div {
+        text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Game Company Post List Filter</h2>
+    <p>Type to filter departments, jobs or posts</p>
+    <div>
+        <input id="myInput" type="text" placeholder="Search..">
+    </div>
+    <br>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Department</th>
+                <th>Job</th>
+                <th>Post</th>
+            </tr>
+            </thead>
+            <tbody id="myTable">
+            <tr>
+                <td>Graphics Design</td>
+                <td>Texture Designer</td>
+                <td>Lead Texture Designer</td>
+            </tr>
+            <tr>
+                <td>Graphics Design</td>
+                <td>Texture Designer</td>
+                <td>Assistant Texture Designer</td>
+            </tr>
+            <tr>
+                <td>Graphics Design</td>
+                <td>Skins Designer</td>
+                <td>Lead Skins Designer</td>
+            </tr>
+            <tr>
+                <td>Graphics Design</td>
+                <td>UI Designer</td>
+                <td>Lead UI Designer</td>
+            </tr>
+            <tr>
+                <td>Motion Capture</td>
+                <td>Human Body Motion Capture</td>
+                <td>Lead Motion Designer</td>
+            </tr>
+            <tr>
+                <td>Motion Capture</td>
+                <td>Human Body Motion Capture</td>
+                <td>Assistant Motion Designer</td>
+            </tr>
+            <tr>
+                <td>Motion Capture</td>
+                <td>Objects Motion Capture</td>
+                <td>Lead Objects Motion Designer</td>
+            </tr>
+            <tr>
+                <td>Audio Designer</td>
+                <td>Vocal Artists</td>
+                <td>Lead Vocal Artist</td>
+            </tr>
+            <tr>
+                <td>Audio Designer</td>
+                <td>FX Artist</td>
+                <td>Lead FX Artist</td>
+            </tr>
+            <tr>
+                <td>VFX</td>
+                <td>VFX Artists</td>
+                <td>Lead VFX Artist</td>
+            </tr>
+            <tr>
+                <td>VFX</td>
+                <td>VFX Artists</td>
+                <td>Assistant VFX Artist</td>
+            </tr>
+            <tr>
+                <td>Script</td>
+                <td>Script Writer</td>
+                <td>Script Writer</td>
+            </tr>
+            <tr>
+                <td>Script</td>
+                <td>Script Writer</td>
+                <td>Scenario Writer</td>
+            </tr>
+            <tr>
+                <td>Testers</td>
+                <td>Closed Beta</td>
+                <td>Beta Tester</td>
+            </tr>
+            <tr>
+                <td>Testers</td>
+                <td>Open Beta</td>
+                <td>Players</td>
+            </tr>
+            <tr>
+                <td>Marketing</td>
+                <td>Advertisement</td>
+                <td>Lead Advertiser</td>
+            </tr>
+            <tr>
+                <td>Marketing</td>
+                <td>Advertisement</td>
+                <td>Assistant Advertiser</td>
+            </tr>
+            <tr>
+                <td>Marketing</td>
+                <td>Sales</td>
+                <td>Sales Executive</td>
+            </tr>
+            <tr>
+                <td>Game Developer</td>
+                <td>Game Developer</td>
+                <td>Lead Game Developer</td>
+            </tr>
+            <tr>
+                <td>Game Developer</td>
+                <td>Game Developer</td>
+                <td>Assistant Game Developer</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

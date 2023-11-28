@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Question 6</title>
+ 
+  <!-- Include jQuery using the script tag with src attribute -->
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <h2 > Changing by buttons</h2>
+
+  <!-- Table with a button to add rows -->
+  <table id="myTable">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Example row -->
+      <tr id="1">
+        <td>1</td>
+        <td>jd</td>
+        <td>22</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Buttons to add rows, remove element, and change color -->
+  <button id="addRowBtn">Add Row</button>
+  <br>
+  <label for="removeElement">Enter ID to Remove:</label>
+  <input type="text" id="removeElement">
+  <button id="removeElementBtn">Remove Element</button>
+  <br>
+  <label for="changeColorElement">Enter ID to Change Color:</label>
+  <input type="text" id="changeColorElement">
+  <button id="changeColorBtn">Change Color</button>
+
+  <!-- jQuery code for adding rows, removing elements, and changing color -->
+  <script>
+    // Use jQuery click function for document ready
+    $(document).ready(function () {
+      // Add row to the table on button click
+      $("#addRowBtn").click(function () {
+        // Example data, replace with your own logic to get data
+        let rowData = {
+          id: "2",
+          name: "Rose boe",
+          age: "30"
+        };
+
+        // Create a new row and append it to the table
+        let newRow = $("<tr id='" + rowData.id + "'><td>" + rowData.id + "</td><td>" + rowData.name + "</td><td>" + rowData.age + "</td></tr>");
+        $("#myTable tbody").append(newRow);
+      });
+
+      // Remove elements by ID on button click
+      $("#removeElementBtn").click(function () {
+        let idToRemove = $("#removeElement").val();
+
+        // Remove elements with the specified ID
+        $("#" + idToRemove).remove();
+      });
+
+      // Change color of elements by ID on button click
+      $("#changeColorBtn").click(function () {
+        let idToChangeColor = $("#changeColorElement").val();
+
+        // Change the background color of the elements with the specified ID
+        $("#" + idToChangeColor).css("color", "royalblue");
+      });
+    });
+  </script>
+</body>
+</html>
