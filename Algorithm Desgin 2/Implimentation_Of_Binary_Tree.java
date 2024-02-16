@@ -1,5 +1,3 @@
-package AD_2;
-
 public class Implimentation_Of_Binary_Tree {
     public class node {
         public int data;
