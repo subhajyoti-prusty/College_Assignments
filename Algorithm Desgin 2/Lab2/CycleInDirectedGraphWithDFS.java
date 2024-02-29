@@ -1,5 +1,3 @@
-package AD_2.Lab2;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 
