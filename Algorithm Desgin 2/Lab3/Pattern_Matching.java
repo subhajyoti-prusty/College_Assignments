@@ -5,6 +5,8 @@ public class Pattern_Matching {
         int M = pattern.length();
         int N = text.length();
 
+        boolean patternFound = false;
+
         for (int i = 0; i <= N - M; i++) {
             int j;
             for (j = 0; j < M; j++) {
@@ -14,8 +16,12 @@ public class Pattern_Matching {
             }
             if (j == M) {
                 System.out.println("Pattern found at index " + i);
-                return;
+                patternFound = true;
+                break;
             }
+        }
+
+        if (!patternFound) {
             System.out.println("Pattern not found in the given text. Please try again.");
         }
     }
