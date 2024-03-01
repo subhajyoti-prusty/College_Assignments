@@ -1,4 +1,7 @@
+package AD_2.Lab3;
+
 import java.util.Scanner;
+
 public class Pattern_Matching {
     public static void search(String text, String pattern) {
         int M = pattern.length();
@@ -13,9 +16,12 @@ public class Pattern_Matching {
             }
             if (j == M) {
                 System.out.println("Pattern found at index " + i);
+                return;
             }
+            System.out.println("Pattern not found in the given text. Please try again.");
         }
     }
+
     public static void main(String[] args) {
         System.out.println("Pattern Matching");
 
@@ -23,7 +29,7 @@ public class Pattern_Matching {
 
         System.out.println("Enter the text: ");
         String text = sc.nextLine();
-        
+
         System.out.println("Enter the pattern to be searched for: ");
         String pattern = sc.nextLine();
 
