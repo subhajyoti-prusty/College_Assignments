@@ -1,5 +1,3 @@
-package AD_2.Lab3;
-
 import java.util.Scanner;
 
 public class Pattern_Matching {
