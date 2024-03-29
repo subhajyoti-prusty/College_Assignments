@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class 6</title>
+</head>
+<body>
+    <h2>Image Mapping</h2>
+    <img src="New York.jpg" alt="Food Image" usemap="#Ads" width="2022px" height="3032px">
+    <map name="Ads">
+        <area 
+        shape="poly" 
+        coords="1380,1192,1576,1186,1575,1504,1374,1512" 
+        alt="Ads" 
+        href="https://www.coca-cola.com/in/en"
+        onclick="myFun">
+        <area 
+        shape=""
+        coords=""
+        href=""
+        alt="">
+    </map>
+    <script>
+        function myFun()
+        {
+            alert("You clicked on Food")
+        }
+    </script>
+</body>
+</html>
