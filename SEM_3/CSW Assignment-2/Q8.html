@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Q8</title>
+    <style>
+        body{
+            background-color: silver;
+            text-align: center;
+        }
+        #Feedback{
+            width: 100%;
+            display: block;
+        }
+        #input{
+            background-color: rgb(236, 224, 224);
+            height: 30px;
+            width: 250px;
+            border: 2px solid rgb(114, 177, 250);
+            padding: 10px;
+            border-radius: 20px;
+        }
+        .Drop-down{
+            font-family: monospace;
+            background-color: bisque;
+        }
+        #DDE{
+            font-style: normal;
+            background-color: rgb(245, 166, 166);
+            font-family:none;
+        }
+        #Submit{
+            background-color: rgb(184, 114, 250);
+            color: rgb(255, 255, 255);
+            border: 2px solid rgb(85, 43, 125);
+            padding: 10px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: monospace;
+            font-size: 20px;
+            font-weight: bold;
+            font-style: normal;
+            text-decoration: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div  id="Feedback" >
+            <label for="in"><h3>Give your valuable feedback:</h3></label>
+            <input type="text" id="input" placeholder=" Plz Write Here">
+        </div>
+        <div>
+            <h2>Drop Down Element</h2>
+            <select name="selection" class="Drop-down">
+               <option value="Bold" id="DDE"><a href="#" >Bold</a></option> 
+               <option value="Italic" id="DDE"> <a href="#" >Italic</a></option>
+               <option value="Underlined" id="DDE"><a href="#" >Underlined</a></option>
+               <option value="Dotted" id="DDE"><a href="#" >Dotted</a></option>
+               <option value="Regular" id="DDE"><a href="#" >Regular</a></option>           
+            </select>
+        </div><br>
+       <button type="submit" id="Submit">SUBMIT</button>
+    </form>
+    <h5 style="text-align: center;">By:-Subhajyoti Prusty (2241016491)</h5>
+</body>
+</html>

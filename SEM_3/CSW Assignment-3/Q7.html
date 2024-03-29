@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>A3Q7</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+<script>
+ function validateForm() {
+    var a = document.forms["form1"]["uname"].value;
+    var b = document.forms["form1"]["email"].value;
+    var c = document.forms["form1"]["mob"].value;
+    var e = document.forms["form1"]["gender"].value;
+    var f = document.forms["form1"]["psw"].value;
+    if (a == "" || a == null) {
+      alert("Username is Empty");
+    }
+    else if (b == "" || b == null) {
+      alert("Email is Empty");
+    }
+    else if (c == "" || c == null) {
+      alert("Mobile Number is Empty");
+    }
+    else if (e == "" || e == null) {
+      alert("Gender is Empty");
+    }
+    else if (f == "" || f == null) {
+        alert("Password is Empty");
+      }
+      else{
+        alert("Sign Up successful")
+        }
+    }
+  </script>
+   
+  </head>
+
+  <body>
+    <h2>Login Form</h2>
+
+    <form name="form1" onsubmit="return validateForm()" >
+      
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" />
+
+      <label for="email"><b>Email</b></label>
+      <input type="email" placeholder="Email" name="email" />
+
+      <label for="mob"><b>Mobile Number</b></label>
+      <input type="text" placeholder="Mobile Number" name="mob" />
+      <br />
+
+      <label for="gender"><b>Gender</b></label><br />
+      <input for="male" type="radio" name="gender" />Male
+      <input for="female" type="radio" name="gender" />Female
+      <br />
+      <br />
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" />
+      <button type="submit">Sign Up</button>
+    </div>
+  </form>
+</body>
+</html>

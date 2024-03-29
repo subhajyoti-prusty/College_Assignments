@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>A3Q1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"> </script>
+    <script>
+        $(document).ready(function(){
+    $("button").click(function(){
+          var count = $("#selected p").length;
+          $(".para").text("There are " + count  + " child element inside the div. ");
+    });
+    });
+      
+    </script>        
+    
+</head>
+<body>
+    <div id="selected">
+        <p>Rohit Sharma</p>
+        <p>MS Dhoni</p>
+        <p>Virat Kohli</p>
+        <p>KL Rahul</p>
+    </div>
+    <button>Click me</button>
+    <div class="para"></div>
+</body>
+</html>
