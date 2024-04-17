@@ -1663,7 +1663,7 @@ var4 = 8            called as Logical Error */
   A --> D[3. Permanent Generation];
   ```
 * When a new object is first created, it's locked in "Young Generation"
-* ![1713337497494](image/Readme/1713337497494.png)
+* ![1713337497494](1713337497494.png)
 * **Making Objects Eligible for Garbage Collection :**
 
   1. Nullyfying/Unreachable Objects
@@ -1673,7 +1673,7 @@ var4 = 8            called as Logical Error */
        Integer object;
        i = null;
        ```
-     + ![1713350154374](image/Readme/1713350154374.png)
+     + ![1713350154374](1713350154374.png)
   2. Re-assigning of reference.
      + ```ruby
        class class1{
@@ -1824,4 +1824,64 @@ var4 = 8            called as Logical Error */
       ID = 5, Name = MNO, Age = 21
       Next Employee ID will be = 6
       Next Employee ID will be = 4*/
+  ```
+<hr>  </hr>
+<hr>  </hr>
+
+<h1 align="center">!!!Notes Available Beyond This Point!!!</h1>
+
+<hr>  </hr>
+<hr>  </hr>
+
+# 16. Strings, I/O Operations, and File Management
+
+## I/O Operations :
+
+* No notes, read this: https://www.geeksforgeeks.org/java-io-tutorial/
+* Example:
+    -  In S3 & S4 it creates 2 new string object which have different memory location therefore it gives false as output even if the string value is same.  
+        ```ruby
+        public class IOoperation
+        {
+            public static void main(String[] args)
+            {
+                String s1 = "abc";
+                String s2 = "abc";
+                System.out.println(s1 = =s2);
+                String s3 = new String("xyz");
+                String s4 = new String("xyz");
+                System.out.println(s3 == s4);
+            }
+        }
+        /*true
+        false */
+        ```
+
+## String Stuff
+
+* **String Concatenation:**  
+    1. Concatenation using + operator
+    2. Concatenation using concat() method  
+
+# Data Structure and Integration in Program
+
+## Non-Linear Data Structure
+
+- **Binary Tree:**
+  ```mermaid
+  graph TD;
+      A-->B;
+      A-->C;
+      B-->D;
+      B-->E;
+      C-->F;
+      C-->G;
+      D-->H;
+      D-->I;
+      E-->J;
+      E-->K;
+      F-->L;
+      F-->M;
+      G-->N;
+      G-->O;
   ```
