@@ -2072,7 +2072,7 @@ References: https://www.geeksforgeeks.org/garbage-collection-java/ ; https://www
 ## File Handling  
 
 ### Creating file in java :
-    ```ruby
+```ruby
     import java.io.*;
 
     public class file_handling_create
@@ -2094,10 +2094,10 @@ References: https://www.geeksforgeeks.org/garbage-collection-java/ ; https://www
 
     /* File created; myfile.txt          //if new file is created
     File already exists                  //if file is already there*/
-    ```
+```
 <br></br>
 ### Visuallising data of the .txt file :
-    ```ruby
+```ruby
     import java.io.File;
     import java.io.FileNotFoundException;
     import java.util.Scanner;
@@ -2121,10 +2121,10 @@ References: https://www.geeksforgeeks.org/garbage-collection-java/ ; https://www
         }
     }
     /*lorem porem stuff     //data inside file */
-    ```  
+ ```  
 <br></br>
 ### Writer (Writes over the previous data) :
-    ```ruby
+```ruby
     import java.io.FileWriter;
     import java.io.IOException;
     public class file_handling_write
@@ -2146,7 +2146,7 @@ References: https://www.geeksforgeeks.org/garbage-collection-java/ ; https://www
     Output: Successfully written
     Inside File: Hello, I have written something for you
     */
-    ```  
+```  
 <br></br>
 * References: https://www.w3schools.com/java/java_files.asp ; https://www.geeksforgeeks.org/file-handling-in-java/ 
 
