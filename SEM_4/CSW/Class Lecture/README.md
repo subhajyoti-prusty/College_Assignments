@@ -1825,13 +1825,7 @@ var4 = 8            called as Logical Error */
       Next Employee ID will be = 6
       Next Employee ID will be = 4*/
   ```
-<hr>  </hr>
-<hr>  </hr>
-
-<h1 align="center">!!!Notes Available Beyond This Point!!!</h1>
-
-<hr>  </hr>
-<hr>  </hr>
+References: https://www.geeksforgeeks.org/garbage-collection-java/ ; https://www.geeksforgeeks.org/java-lang-runtime-class-in-java/  
 
 # 16. Strings, I/O Operations, and File Management
 
@@ -1839,29 +1833,331 @@ var4 = 8            called as Logical Error */
 
 * No notes, read this: https://www.geeksforgeeks.org/java-io-tutorial/
 * Example:
-    -  In S3 & S4 it creates 2 new string object which have different memory location therefore it gives false as output even if the string value is same.  
-        ```ruby
-        public class IOoperation
+  - In S3 & S4 it creates 2 new string object which have different memory location therefore it gives false as output even if the string value is same.
+    ```ruby
+    public class IOoperation
+    {
+        public static void main(String[] args)
         {
-            public static void main(String[] args)
-            {
-                String s1 = "abc";
-                String s2 = "abc";
-                System.out.println(s1 = =s2);
-                String s3 = new String("xyz");
-                String s4 = new String("xyz");
-                System.out.println(s3 == s4);
-            }
+            String s1 = "abc";
+            String s2 = "abc";
+            System.out.println(s1 = =s2);
+            String s3 = new String("xyz");
+            String s4 = new String("xyz");
+            System.out.println(s3 == s4);
         }
-        /*true
-        false */
-        ```
-
+    }
+    /*true
+    false */
+    ```
+<br></br>
 ## String Stuff
 
-* **String Concatenation:**  
-    1. Concatenation using + operator
-    2. Concatenation using concat() method  
+### String Concatenation:
+
+  1. Concatenation using addition(+) operator
+     ```ruby
+     class KunuKunu
+     {
+         public static void main(String []args)
+         {
+             //Concatenation of two strings :
+             String s1 = "Hello ";
+             String s2 = "Section 44";
+             s2 += s1;
+             System.out.println(s2);
+
+             //Concatenation of variable objects :
+             String s1 = "Hello";
+             String s2 = " World ";
+             int s3 = 404;
+             String s4 = s1+s2+s3;
+             System.out.println(s4);
+         }
+     }
+     //Output : Hello Section 44
+     //         Hello World 404
+     ```
+  2. Concatenation using concat() method
+     ```ruby
+     class KunuKunu
+     {
+         public static void main(String []args)
+         {
+             String s1 = "Hello ";
+             s1 = s1.concat("Section 44");
+             System.out.println(s1);
+             String s2 = "Section 44";
+             String s1 = s1.concat(s2);
+             System.out.println(s1);
+             String s3 = s1.concat(s2);
+             System.out.println(s3);
+         }
+     }
+     //Output: Hello Section 44
+     //         Hello Section 44Section 44
+     //         Hello Section 44Section 44Section 44
+     ```
+<br></br>
+  - Difference between Addition(+) & Concat:
+    1. **Number of argument concat() and '+' operator take.**
+       + Concat() takes only one argument to concat.
+       + '+' operator can add more than two at a time.
+       + ```
+         S1 = "Hello ", S2 = "Section ", S3 = "44"  
+         S1 + S2 + S3 will give output as Hello Section 44  
+         S1.concat(S2).concat(S3) gives the same result but needs two calls  
+         ```
+    2. **Object Type Problem**
+       + Concat() only take String arguments, else error.
+       + '+' can add strings as well as variable objects.
+       + ``string + string + int only possible with '+' method``
+    3. **Exceptions**
+       + concat() raises java.lang.NullPointerException  if any of its argument is null.
+       + '+' does not raise NullPointerException if any of its argument is null.
+       + ```
+         String s1 = "Hello ";
+         String s2 = null;
+         s1 = s1.concat(s2); //Will raise null pointer exception
+         String s3 = s1 + s2; //wont  
+         ```
+    4. **Different Soul they have**
+       + '+' always creates a new string object.
+       + concat() method take the String parameter and creates another string object if the string parameter has length greater than 0.
+       + ```ruby
+         class CreatesDiffObject
+         {
+             public static void main(String[] args)
+             {
+                 String s1 = "Hello";
+                 String s2 = "";
+
+                 //case 1
+                 String s3 = s1.concat(s2);
+
+                 System.out.print("During concat: ");
+                 if(s1 == s3)
+                   System.out.print("same");
+                 else
+                   System.out.print("different");
+
+                 //case 2
+                 String s4 = s1 + s2; 
+
+                 System.out.print("\nWith addition operator: ");
+                 if(s1 == s4)
+                   System.out.print("same");
+                 else
+                     System.out.print("different");
+             }  
+         }
+
+         /*During concat: same
+         With addition operator: different */
+         ```
+    5. **Performance :**
+       - The concat method perform better as it doesn't create new object when that is not required.
+<br></br>
+<br></br>
+### Splitting of strings: 
+
+  1. **public String split(String regex)**
+     - **regex -** A delimitting regular expression.
+     - Example 1:
+       ```ruby
+       class Divorce
+       {
+           public static void main(String[] args)
+           {
+             String my_str = "ITER : A SOA University";
+             String[] piece_str = my_str.split(":");
+             for(String a : piece_str)
+                 System.out.println(a);
+           }
+       }
+       /*ITER
+       A SOA University*/
+       ```
+     - Example 2:
+       ```ruby
+       class Anullment
+       {
+           public static void main(String[] args)
+           {
+             String sr = "word1$[word2#word3]word4";
+             String[] piece = sr.split("[$#]+");//Symbols wont get detected without []
+             for(String b : piece)
+                 System.out.println(b);
+           }
+       }
+       //word1
+       [word2
+       word3]word4
+       ```
+  2. **public string[] split(String regex, int limit);**
+     - **limit > 0 :**  The pattern will be applied atmost (limit-1) times, till it reaches the end of the string. The resulting array's length will not be greater than the original length of the array.
+       ```ruby
+       class Divorce
+       {
+           public static void main(String[] args)
+           {
+             String word = "hello#world#how#are#you";
+             String[] cut = word.split("#", 2);
+             for(String a : cut)
+                 System.out.println(a);
+           }
+       }
+       /*hello
+       how#are#you*/
+       ```
+     - **limit = 0 :**  The pattern will be applied as many times possible. The resultant array can be of any size and trailing empty strings will be discarded.
+       ```ruby
+       class Anullment
+       {
+           public static void main(String[] args)
+           {
+             String word = "hello#world#how#are#you###";
+             String[] cut = word.split("#", 0);
+             for(String b : cut)
+                 System.out.println(b);
+             System.out.println(cut.length);
+           }
+       }
+       /*hello
+         world
+         how
+         are
+         you
+         5*/ 
+       ```
+     - **limit < 0 :**  The pattern will be applied as many times as possible. The resulting array can be of any size. Trailing empty strings are not discarded.
+       ```ruby
+       class Anullment
+       {
+           public static void main(String[] args)
+           {
+             String word = "hello#world#how#are#you###";
+             String[] cut = word.split("#", -2);//any negative number
+             for(String b : cut)
+                 System.out.println(b);
+             System.out.println(cut.length);
+           }
+       }
+       /*hello
+         world
+         how
+         are
+         you
+
+
+
+         8*/ 
+       ```
+  - Reference: https://www.geeksforgeeks.org/split-string-java-examples/  
+<br></br>
+<br></br>
+### String Buffer & String Builder :
+
+  | String Buffer                                                                                                         | String Builder                                                                                                          |
+  | --------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+  | i. Initially from Java                                                                                                | i. Introduced in Java5                                                                                                  |
+  | ii. Synchronized: multiple threads/process can't call String Buffer Simultaneously.                                   | ii. Asynchronized: multiple threads/processor can call String Builder Simultaneously.                                   |
+  | iii. Due to synchronization String Buffer is very slow.                                                               | iii. Due to Asynchronized String Builder is very fast.                                                                  |
+  | iv. Thread Safe.                                                                                                      | iv. Thread unsafe.                                                                                                      |
+  | StringBuffer g = new StringBuffer("hello");<br />g = g.append("you");<br />System.out.prntln(g);<br />//o/p: helloyou | StringBuilder h = new StringBuilder("hello");<br />h = h.append("you");<br />System.out.prntln(h);<br />//o/p: helloyou |
+
+    - References: https://www.geeksforgeeks.org/stringbuffer-class-in-java/ ; https://www.geeksforgeeks.org/stringbuilder-class-in-java-with-examples/  
+
+<br></br>
+## File Handling  
+
+### Creating file in java :
+    ```ruby
+    import java.io.*;
+
+    public class file_handling_create
+    {
+        public static void main(String[] args)
+        {
+            try{
+                File obj = new File("myfile.txt");
+                if(obj.createNewFile())
+                    System.out.println("File created: " + obj.getName());
+                else
+                    System.out.println("File already exists");
+            }
+            catch(IOException e){
+                System.out.println("An error has occured.");
+            }
+        }
+    }
+
+    /* File created; myfile.txt          //if new file is created
+    File already exists                  //if file is already there*/
+    ```
+<br></br>
+### Visuallising data of the .txt file :
+    ```ruby
+    import java.io.File;
+    import java.io.FileNotFoundException;
+    import java.util.Scanner;
+
+    public class file_handling_read 
+    {
+        public static void main(String[] args)
+        {
+            try{
+                File obj = new File("myfile.txt");
+                Scanner Reader = new Scanner(obj);
+                while(Reader.hasNextLine()){
+                    String data = Reader.nextLine();
+                    System.out.println(data);
+                }
+                 Reader.close();
+            }
+            catch(FileNotFoundException e){
+                System.out.println("file not found");
+            }
+        }
+    }
+    /*lorem porem stuff     //data inside file */
+    ```  
+<br></br>
+### Writer (Writes over the previous data) :
+    ```ruby
+    import java.io.FileWriter;
+    import java.io.IOException;
+    public class file_handling_write
+    {
+        public static void main(String[] args)
+        {
+            try{
+                FileWriter Writer = new FileWriter("myfile.txt");
+                Writer.write("Hello, I have written something for you");
+                Writer.close();
+                System.out.println("Successfully written");
+            }
+            catch(IOException e){
+                System.out.println("Error");
+            }
+        }
+    }
+    /*
+    Output: Successfully written
+    Inside File: Hello, I have written something for you
+    */
+    ```  
+<br></br>
+* References: https://www.w3schools.com/java/java_files.asp ; https://www.geeksforgeeks.org/file-handling-in-java/ 
+
+
+<hr>  </hr>
+<hr>  </hr>
+
+<h1 align="center">!!!Notes Not Ready Beyond This Point!!!</h1>
+
+<hr>  </hr>
+<hr>  </hr>
 
 # Data Structure and Integration in Program
 
