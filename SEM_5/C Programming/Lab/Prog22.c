@@ -16,6 +16,11 @@ int main(){
 		}
 	}
 	
+	if (n != p) {
+        	printf("Matrix multiplication not possible! Number of columns in first matrix must equal number of rows in second matrix.\n");
+        return 0;
+    	}
+	
 	printf("Enter the number of rows and columns of the second matrix: ");
 	scanf("%d%d", &p, &q);
         
@@ -42,5 +47,12 @@ int main(){
 			}
 		}
 	}
-    
+    	printf("The resultant matrix after multiplication is:\n");
+    	for (i = 0; i < m; i++) {
+        	for (j = 0; j < q; j++) {
+            		printf("%d ", result[i][j]);
+        	}
+        	printf("\n");
+   	}	
+    return 0;
 }
