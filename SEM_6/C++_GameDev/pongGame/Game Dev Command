@@ -1,0 +1,11 @@
+// To Create the file.
+gedit File_Name.cpp
+
+// To Create header file.
+gedit File_Name.h
+
+// To Compile file.
+g++ File_Name.cpp -o Obj_File_Name -lsfml-graphics -lsfml-window -lsfml-system
+
+// To Compile multiple file.
+g++ File1_Name.cpp File2_Name.cpp File3_Name.cpp -o Obj_File_Name -lsfml-graphics -lsfml-window -lsfml-system
