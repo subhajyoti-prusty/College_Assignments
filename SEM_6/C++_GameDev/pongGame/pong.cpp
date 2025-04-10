@@ -1,6 +1,6 @@
 #include <SFML/Graphics.hpp>
-#include "Bat.h"  // Make sure Bat.h and Bat.cpp are implemented properly
-#include "Ball.h" // Make sure Ball.h and Ball.cpp are implemented properly
+#include "Bat.h"
+#include "Ball.h"
 #include <sstream>
 #include <iostream>
 
@@ -12,15 +12,16 @@ int main() {
     View view(FloatRect(0, 0, 1920, 1080));
     window.setView(view);
 
-    Bat bat(1920 / 2 - 250 / 2, 1080 - 80);  // Bat positioned at the bottom of the window
-    Ball ball(1920 / 2 - 25, 0);  // Ball positioned at the top of the window
+    Bat bat(1920 / 2 - 250 / 2, 1080 - 80);
+    Ball ball(1920 / 2 - 25, 0);
 
     Clock clock;
     int score = 0;
     int lives = 3;
-    bool isPaused = false;  // Game is initially not paused
+    bool isPaused = false;
+    bool isGameOver = false;
 
-    // Create the HUD (score and lives)
+    // HUD
     Text hud;
     Font font;
     font.loadFromFile("font/KOMIKAP_.ttf");
@@ -29,14 +30,26 @@ int main() {
     hud.setFillColor(Color::Red);
     hud.setPosition(40, 40);
 
-    // Message when game over or paused
-    Text msg;
-    msg.setFont(font);
-    msg.setCharacterSize(80);
-    msg.setFillColor(Color::Red);
-    msg.setPosition(100, 100);
+    // Pause Message
+    Text pauseText;
+    pauseText.setFont(font);
+    pauseText.setCharacterSize(100);
+    pauseText.setFillColor(Color::Red);
+    pauseText.setString("PAUSED");
+    FloatRect pauseBounds = pauseText.getLocalBounds();
+    pauseText.setOrigin(pauseBounds.width / 2, pauseBounds.height / 2);
+    pauseText.setPosition(1920 / 2, 1080 / 2);
 
-    // Gaming Loop
+    // Game Over Message
+    Text gameOverText;
+    gameOverText.setFont(font);
+    gameOverText.setCharacterSize(100);
+    gameOverText.setFillColor(Color::Red);
+    gameOverText.setString("GAME OVER!");
+    FloatRect gameOverBounds = gameOverText.getLocalBounds();
+    gameOverText.setOrigin(gameOverBounds.width / 2, gameOverBounds.height / 2);
+    gameOverText.setPosition(1920 / 2, 1080 / 2);
+
     while (window.isOpen()) {
         Event event;
         while (window.pollEvent(event)) {
@@ -44,9 +57,9 @@ int main() {
                 window.close();
             }
 
-            // Toggle pause when spacebar is pressed
-            if (event.type == Event::KeyPressed && event.key.code == Keyboard::Space) {
-                isPaused = !isPaused;  // Toggle pause state
+            // Toggle pause
+            if (event.type == Event::KeyPressed && event.key.code == Keyboard::Space && !isGameOver) {
+                isPaused = !isPaused;
             }
         }
 
@@ -54,8 +67,8 @@ int main() {
             window.close();
         }
 
-        if (!isPaused) {  // Only update the game when not paused
-            // Handle player movement
+        if (!isPaused && !isGameOver) {
+            // Bat control
             if (Keyboard::isKeyPressed(Keyboard::Right)) {
                 bat.moveRight();
             } else {
@@ -68,7 +81,7 @@ int main() {
                 bat.stopLeft();
             }
 
-            // Handle ball movement and rebound logic
+            // Ball physics
             if ((ball.getPosition().left < 0) || (ball.getPosition().left + ball.getPosition().width > 1920)) {
                 ball.reboundSides();
             }
@@ -86,41 +99,38 @@ int main() {
                 ball.reboundBottom();
                 lives--;
                 if (lives < 1) {
-                    std::stringstream ss;
-                    ss << "Game Over!";
-                    msg.setString(ss.str());
-                    score = 0;
-                    lives = 3;
+                    isGameOver = true;
+                    isPaused = true;
                 }
             }
 
-            // Update game objects
+            // Update
             Time dt = clock.restart();
             bat.update(dt);
             ball.update(dt);
+        } else {
+            // Keep clock in sync while paused/game over
+            clock.restart();
         }
 
-        // Display Paused text if the game is paused
-        if (isPaused) {
-            Text pausedText;
-            pausedText.setFont(font);
-            pausedText.setCharacterSize(75);
-            pausedText.setFillColor(Color::Red);
-            pausedText.setString("PAUSED");
-            window.draw(pausedText);
-        }
-
-        // Update HUD text with score and lives
+        // HUD update
         std::stringstream ss;
         ss << "Score: " << score << "\nLives: " << lives;
         hud.setString(ss.str());
 
-        // Clear window and draw everything
+        // Rendering
         window.clear();
         window.draw(bat.getShape());
         window.draw(ball.getShape());
         window.draw(hud);
-        window.draw(msg);
+
+        if (isPaused && !isGameOver) {
+            window.draw(pauseText);
+        }
+
+        if (isGameOver) {
+            window.draw(gameOverText);
+        }
 
         window.display();
     }
